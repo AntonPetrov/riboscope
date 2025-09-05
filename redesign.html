@@ -14,7 +14,7 @@
         body {
             font-family: 'Arial', sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(180deg, #7dd3c0 0%, #96d9d6 50%, #c8e6f0 100%);
+            background: linear-gradient(180deg, #6dd4c4 0%, #96d9d6 50%, #c8e6f0 100%);
             background-attachment: fixed;
             transition: background 0.3s ease;
             padding-top: 80px;
@@ -27,12 +27,17 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             padding: 15px 20px;
             z-index: 1000;
             transition: all 0.3s ease;
+        }
+
+        .navbar:hover {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(25px);
         }
 
         .nav-container {
@@ -49,6 +54,21 @@
             color: #fff;
             text-decoration: none;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.02);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-menu {
@@ -63,27 +83,35 @@
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .nav-menu li a:hover {
-            color: #81d4fa;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            transform: translateY(-1px);
         }
 
         .nav-menu li a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 2px;
+            left: 50%;
             width: 0;
             height: 2px;
-            background-color: #81d4fa;
-            transition: width 0.3s ease;
+            background: linear-gradient(45deg, #4fc3f7, #29b6f6);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
         }
 
         .nav-menu li a:hover::after {
-            width: 100%;
+            width: 80%;
         }
 
         .nav-cta {
@@ -146,6 +174,18 @@
             animation: fadeInUp 1s ease forwards;
             font-weight: bold;
             letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-logo {
+            height: 80px;
+            width: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
         }
 
         .hero p {
@@ -522,7 +562,7 @@
             background: url('images/redesign/seabed.png') no-repeat center bottom;
             background-size: cover;
             z-index: 999;
-            opacity: 0.8;
+            opacity: 0.4;
             pointer-events: none;
         }
 
@@ -736,7 +776,10 @@
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">RIBOSCOPE</a>
+            <a href="#home" class="nav-logo">
+                <img src="images/redesign/riboscope-logo.svg" alt="Riboscope Logo">
+                RIBOSCOPE
+            </a>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -777,7 +820,10 @@
     <div class="container">
         <section class="hero" id="home">
             <div class="section-content">
-                <h1>RIBOSCOPE</h1>
+                <h1>
+                    <img src="images/redesign/riboscope-logo.svg" alt="Riboscope Logo" class="hero-logo">
+                    RIBOSCOPE
+                </h1>
                 <p>RNA Bioinformatics Consultancy</p>
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button">Start Your Project</a>
@@ -897,7 +943,7 @@
 
             // Define color stops for the gradient transition
             const colors = [
-                { r: 125, g: 211, b: 192 }, // Seafoam
+                { r: 109, g: 212, b: 196 }, // Bluer seafoam
                 { r: 150, g: 217, b: 214 }, // Light blue
                 { r: 130, g: 190, b: 210 }, // Medium light blue
                 { r: 110, g: 170, b: 200 }, // Light blue
