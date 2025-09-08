@@ -702,6 +702,21 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
+        .contact-info .credits {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 10px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-info .credits a {
+            color: #b3e5fc;
+            text-decoration: none;
+        }
+        .contact-info .credits a:hover {
+            text-decoration: underline;
+        }
 
         .contact-info a {
             color: #81d4fa;
@@ -1082,7 +1097,7 @@
             <!-- Diver image -->
         </div>
 
-        <div class="background-illustration rna-diagram-1" data-scroll-trigger="0.2">
+        <div class="background-illustration rna-diagram-1" data-scroll-trigger="0.15">
             <!-- RNA diagram 1 -->
         </div>
 
@@ -1090,7 +1105,7 @@
             <!-- RNA diagram 2 -->
         </div>
 
-        <div class="background-illustration rna-diagram-3" data-scroll-trigger="0.4">
+        <div class="background-illustration rna-diagram-3" data-scroll-trigger="0.5">
             <!-- RNA diagram 3 -->
         </div>
 
@@ -1098,7 +1113,7 @@
             <!-- Bathyscaphe image -->
         </div>
 
-        <div class="background-illustration rna-diagram-4" data-scroll-trigger="0.5">
+        <div class="background-illustration rna-diagram-4" data-scroll-trigger="0.65">
             <!-- RNA diagram 4 -->
         </div>
     </div>
@@ -1223,6 +1238,7 @@
                     <p>Email: contact@riboscope.com</p>
                     <p>Cambridge, UK</p>
                     <p class="company-reg">Riboscope Ltd, registered in England & Wales (No. 14348766)</p>
+                    <p class="credits">Visuals: Photography — <a href="https://www.founderstory.co.uk/" rel="noopener">Rajen Mistry</a> · Illustrations — <a href="https://www.linkedin.com/in/boris-zieziulin-883238340/" rel="noopener">Boris Zieziulin</a></p>
                 </div>
                 <div class="contact-cta">
                     <a href="mailto:contact@riboscope.com" class="cta-button">Get in Touch</a>
@@ -1240,16 +1256,6 @@
             const scrollY = window.pageYOffset;
             const maxScroll = document.body.scrollHeight - window.innerHeight;
             const scrollProgress = Math.min(scrollY / maxScroll, 1);
-
-            // Define color stops for the gradient transition
-            // const colors = [
-            //     { r: 109, g: 212, b: 196 }, // Bluer seafoam
-            //     { r: 150, g: 217, b: 214 }, // Light blue
-            //     { r: 130, g: 190, b: 210 }, // Medium light blue
-            //     { r: 110, g: 170, b: 200 }, // Light blue
-            //     { r: 95, g: 155, b: 185 },  // Medium blue
-            //     { r: 80, g: 140, b: 170 }   // Deeper but still light blue
-            // ];
 
             const colors = [
                 { r: 37, g: 193, b: 212 }, // Seafoam
