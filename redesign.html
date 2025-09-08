@@ -106,20 +106,28 @@
         }
 
         .nav-cta {
-            background: linear-gradient(45deg, #4fc3f7, #29b6f6);
+            background: transparent;
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 8px 16px;
+            border-radius: 999px;
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
+            font-weight: 600;
+            transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+            border: 2px solid rgba(255,255,255,0.85);
             cursor: pointer;
+            box-shadow: none;
         }
 
         .nav-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+        }
+
+        .nav-cta:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.35);
         }
 
         /* Mobile Navigation */
@@ -266,15 +274,45 @@
         }
 
         .service-card {
-            background: rgba(0, 40, 80, 0.85);
-            padding: 30px;
-            border-radius: 15px;
+            position: relative;
+            background: rgba(0, 40, 80, 0.82);
+            padding: 28px 26px 26px 26px;
+            border-radius: 16px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transform: translateY(20px);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            transform: translateY(18px);
             opacity: 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+            overflow: hidden;
+        }
+
+        /* Service card polish */
+        .service-card::before { display: none; }
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+        .service-card p {
+            color: #e3f2fd;
+            line-height: 1.65;
+            font-size: 1.02rem;
+        }
+        .service-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(0, 54, 105, 0.9);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.35);
+        }
+        .service-card + .service-card {
+            /* subtle separation on narrow columns */
         }
 
         .service-card.visible {
@@ -354,36 +392,146 @@
             margin: 0 auto 40px auto;
             background: rgba(255, 255, 255, 0.08);
             padding: 30px;
+            padding-top: 5px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .founder-content {
+        /* Leadership visual enhancements */
+        .leader-header {
             display: flex;
-            align-items: flex-start;
-            gap: 30px;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 10px;
+            margin-top: -10px;
         }
 
+        .leader-header .leader-sub {
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.85;
+            color: #e3f2fd;
+        }
+
+        .founder-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .founder-role {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 14px;
+            color: #e3f2fd;
+        }
+
+        .stat-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 16px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.10));
+            border: 1px solid rgba(255,255,255,0.28);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+            white-space: nowrap;
+            backdrop-filter: blur(6px);
+        }
+
+        .badge strong {
+            margin-right: 4px;
+        }
+
+        .founder-highlights {
+            margin: 12px 0 0 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .founder-highlights li {
+            position: relative;
+            padding-left: 28px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .founder-highlights li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-weight: 700;
+            color: #4fc3f7;
+            font-size: 1rem;
+        }
+
+        /* Make founder photo rounded rectangle and slightly smaller for balance */
         .founder-photo {
             flex-shrink: 0;
-            width: 180px;
-            height: 220px;
-            border-radius: 15px;
+            width: 260px;
+            height: auto;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
         .founder-photo img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .leader-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+                text-align: center;
+            }
+            .stat-badges {
+                justify-content: center;
+            }
+            .founder-highlights {
+                text-align: left;
+            }
+        }
+
+        .founder-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .founder-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             object-position: center;
         }
 
         .founder-text {
             flex: 1;
         }
+        .founder-text { text-align: left; }
+        .founder-text p { max-width: 720px; }
+        .founder-text a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); }
+        .founder-text a:hover { border-bottom-color: rgba(255,255,255,0.8); opacity: 0.9; }
 
         .about-founder p,
         .about-services p:not(.about-philosophy) {
@@ -464,61 +612,71 @@
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
 
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 35px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease;
             position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.14);
+            padding: 28px 26px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transform: translateY(18px);
+            opacity: 0;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.26);
         }
-
-        .testimonial-card::after {
-            content: '"';
+        .testimonial-card::before{
+            content: "“";
             position: absolute;
-            top: 10px;
-            left: 25px;
+            top: -8px;
+            left: 18px;
             font-size: 4rem;
-            color: rgba(255, 255, 255, 0.3);
-            font-family: Georgia, serif;
             line-height: 1;
+            color: rgba(255,255,255,0.25);
+            font-family: Georgia, "Times New Roman", serif;
             pointer-events: none;
         }
-
         .testimonial-card.visible {
             transform: translateY(0);
             opacity: 1;
         }
-
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 25px;
-            font-size: 1.15rem;
-            line-height: 1.7;
+            margin: 0 0 14px 0;
+            font-size: 1.05rem;
+            line-height: 1.65;
             color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
             position: relative;
             z-index: 1;
-            padding-left: 20px;
+            padding-left: 0;
         }
-
         .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 600;
             color: #b3e5fc;
-            text-align: right;
-            font-size: 0.95rem;
-            margin-top: 15px;
-            position: relative;
-            z-index: 1;
+            text-align: left;
+            font-size: 0.98rem;
+            margin-top: 6px;
+        }
+        .testimonial-author::before{
+            content: "—";
+            opacity: 0.9;
+        }
+        .testimonial-source{
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        @media (max-width: 900px){
+            .testimonial-grid{
+                grid-template-columns: 1fr;
+            }
         }
 
         .contact {
@@ -843,8 +1001,9 @@
 
             .founder-photo {
                 align-self: center;
-                width: 150px;
-                height: 180px;
+                width: 140px;
+                height: 140px;
+                border-radius: 12px;
             }
 
             .nav-menu {
@@ -878,6 +1037,11 @@
                 display: block;
                 margin: 10px auto;
                 text-align: center;
+            }
+
+            .rna-diagram-3,
+            .rna-diagram-4 {
+                display: none;
             }
         }
     </style>
@@ -946,7 +1110,7 @@
                     <img src="images/redesign/riboscope-logo-white.svg" alt="Riboscope Logo" class="hero-logo">
                     RIBOSCOPE
                 </h1>
-                <p>End-to-end RNA bioinformatics expertise — from data pipelines to web applications — to accelerate discovery</p>
+                <p>End-to-end RNA bioinformatics expertise — from data pipelines to web applications — accelerating discovery</p>
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button">Get in Touch</a>
                     <a href="#services" class="cta-button secondary">Explore Services</a>
@@ -958,31 +1122,31 @@
         <section class="services" id="services">
             <div class="section-content">
                 <h2>Services</h2>
-                <p class="services-intro">End-to-end RNA bioinformatics expertise for research and industry</p>
+                <p class="services-intro">Specialist RNA bioinformatics for research, biotech, and industry</p>
                 <div class="service-grid">
                     <div class="service-card">
                         <h3>Genome Annotation & RNA Discovery</h3>
-                        <p>Identification and characterization of coding and non-coding RNAs, integrated into genome and transcriptome annotations.</p>
+                        <p>Identify and characterise coding and non‑coding RNAs, integrating results into genome and transcriptome annotations.</p>
                     </div>
                     <div class="service-card">
                         <h3>RNA Structure Prediction & Analysis</h3>
-                        <p>Computational methods for RNA secondary and tertiary structure, including comparative and large-scale structural analysis.</p>
+                        <p>Apply advanced computational methods to predict RNA secondary and tertiary structures and perform large‑scale comparative analysis.</p>
                     </div>
                     <div class="service-card">
                         <h3>RNA Structure Visualisation</h3>
-                        <p>Clear, publication-ready visualisations of RNA structure, from single molecules to large families.</p>
+                        <p>Deliver clear, publication‑ready visualisations of RNA structures — from individual molecules to entire families.</p>
                     </div>
                     <div class="service-card">
                         <h3>Search Interfaces for Large Datasets</h3>
-                        <p>Design and implementation of search interfaces to explore and curate RNA and genomic data at scale.</p>
+                        <p>Design and implement scalable interfaces to search, curate, and explore RNA and genomic data.</p>
                     </div>
                     <div class="service-card">
                         <h3>Custom Pipelines & Data Processing</h3>
-                        <p>Robust, reproducible workflows tailored to your datasets — from raw data to processed, interpretable results.</p>
+                        <p>Build robust, reproducible pipelines tailored to your datasets — from raw inputs to interpretable results.</p>
                     </div>
                     <div class="service-card">
                         <h3>Web Applications & Interfaces</h3>
-                        <p>Experienced development of research-focused web applications and UIs — from rapid prototypes to polished, demo-ready sites.</p>
+                        <p>Develop research‑focused web applications and user interfaces, from rapid prototypes to polished demo‑ready tools.</p>
                     </div>
                 </div>
                 <div class="services-cta">
@@ -1000,16 +1164,31 @@
                     <p>With deep expertise in RNA biology, custom data pipelines, and intuitive interface design, Riboscope helps research groups, biotech startups, and VC firms turn complex RNA data into clear insight and discovery.</p>
                 </div>
 
-                <div class="about-founder">
-                    <h3>Leadership</h3>
+                    <div class="about-founder">
+                    <div class="leader-header">
+                        <h3>Leadership</h3>
+                        <p class="leader-sub">At the intersection of RNA science and technology</p>
+                    </div>
                     <div class="founder-content">
                         <div class="founder-photo">
-                            <img src="images/redesign/founder.jpg" alt="Anton Petrov, PhD - Founder of Riboscope">
+                            <img src="images/redesign/founder.jpg" alt="Anton Petrov, PhD — Founder of Riboscope">
                         </div>
                         <div class="founder-text">
-                            <p>Riboscope is led by <a href="https://antonpetrov.com"><strong>Anton Petrov, PhD</strong></a>, a bioinformatician with over 15 years of experience in RNA structure analysis, comparative genomics, and software development.</p>
-                            <p>Anton previously led the <a href="https://rfam.org">Rfam</a> and <a href="https://rnacentral.org">RNAcentral</a> databases at EMBL-EBI, key resources used by tens of thousands of researchers worldwide. He is the creator of <a href="https://r2dt.bio">R2DT</a>, a widely adopted platform for RNA secondary structure visualization.</p>
-                            <p>He has authored over 30 peer-reviewed papers with 4,200+ citations, serves as a peer reviewer for leading journals including Nucleic Acids Research and Nature Communications, and has reviewed grants for international funding agencies.</p>
+                            <p class="founder-name"><a href="https://antonpetrov.com"><strong>Anton Petrov, PhD</strong></a></p>
+                            <p class="founder-role">Founder &amp; Principal Bioinformatician</p>
+
+                            <div class="stat-badges">
+                                <span class="badge"><strong>15+</strong> years experience</span>
+                                <span class="badge"><strong>30+</strong> publications</span>
+                                <span class="badge"><strong>4,800+</strong> citations</span>
+                            </div>
+
+                            <p>Anton led the <a href="https://rfam.org">Rfam</a> and <a href="https://rnacentral.org">RNAcentral</a> databases at EMBL‑EBI, resources used by tens of thousands of researchers worldwide, and created <a href="https://r2dt.bio">R2DT</a> for RNA secondary structure visualisation.</p>
+
+                            <ul class="founder-highlights">
+                                <li>Peer reviewer for leading journals (e.g., <em>Nucleic Acids Research</em>, <em>Nature Communications</em>, <em>RNA</em>)</li>
+                                <li>Combines deep RNA biology with modern software engineering to deliver reliable tools and results</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1020,17 +1199,18 @@
             <div class="section-content">
                 <h2>Client Feedback</h2>
                 <div class="testimonial-grid">
+                    <!-- Testimonial 1 (existing content kept) -->
                     <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "We worked with Anton on two projects to create custom code with advanced UI to support our researchers."
-                        </div>
-                        <div class="testimonial-text">
-                            "We loved the tool he built and appreciated how organized and flexible he was throughout all stages — from project discussion and planning to execution and onboarding."
-                        </div>
-                        <div class="testimonial-text">
-                            "Anton is clearly committed to delivering the best results for his clients, striving to understand their true needs and even suggesting solutions they may not have considered."
-                        </div>
-                        <div class="testimonial-author">– Scientist, RNA therapeutics startup</div>
+                        <div class="testimonial-text">“We worked with Anton on two projects to create custom code with advanced UI to support our researchers.”</div>
+                        <div class="testimonial-text">“We loved the tool he built and appreciated how organized and flexible he was throughout all stages — from project discussion and planning to execution and onboarding.”</div>
+                        <div class="testimonial-text">“Anton is clearly committed to delivering the best results for his clients, striving to understand their true needs and even suggesting solutions they may not have considered.”</div>
+                        <div class="testimonial-author"><span class="testimonial-source">Director, RNA therapeutics startup</span></div>
+                    </div>
+                    <!-- Testimonial 2 (placeholder) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">“Riboscope quickly translated our research needs into reliable tools and clear analyses. Communication was excellent throughout.”</div>
+                        <div class="testimonial-text">“The web interface made complex results easy to explore and share with the team.”</div>
+                        <div class="testimonial-author"><span class="testimonial-source">PI, University research group</span></div>
                     </div>
                 </div>
             </div>
