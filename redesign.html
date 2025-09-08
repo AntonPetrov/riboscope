@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riboscope - RNA Consultancy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             overflow-x: hidden;
             background: linear-gradient(180deg, #6dd4c4 0%, #96d9d6 50%, #c8e6f0 100%);
             background-attachment: fixed;
@@ -29,7 +32,6 @@
             right: 0;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             padding: 15px 20px;
             z-index: 1000;
             transition: all 0.3s ease;
@@ -95,23 +97,6 @@
             background: rgba(255, 255, 255, 0.15);
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             transform: translateY(-1px);
-        }
-
-        .nav-menu li a::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #4fc3f7, #29b6f6);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 1px;
-        }
-
-        .nav-menu li a:hover::after {
-            width: 80%;
         }
 
         .nav-cta {
@@ -186,6 +171,7 @@
             width: auto;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
         }
 
         .hero p {
@@ -324,11 +310,13 @@
         }
 
         .about h3 {
-            font-size: 1.6rem;
-            margin: 30px 0 15px 0;
-            color: #4fc3f7;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-            font-weight: 600;
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            font-weight: 700;
+            padding-bottom: 8px;
+            display: inline-block;
         }
 
         .about-intro {
@@ -357,7 +345,38 @@
         .about-founder,
         .about-services {
             max-width: 900px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 40px auto;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .founder-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .founder-photo {
+            flex-shrink: 0;
+            width: 180px;
+            height: 220px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .founder-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .founder-text {
+            flex: 1;
         }
 
         .about-founder p,
@@ -370,19 +389,33 @@
             font-weight: 400;
         }
 
-        .about-philosophy {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            margin-top: 20px;
-            font-style: italic;
-            color: #e3f2fd;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-            font-weight: 400;
+        .about-founder a,
+        .about-services a {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-color: whitesmoke;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        .services-list {
-            margin: 20px auto;
-            padding: 0;
+        .about-founder a:hover,
+        .about-services a:hover {
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .about-philosophy {
+            margin-top: 25px;
+            font-style: italic;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            font-weight: 500;
+            padding: 20px;
+        }        .services-list {
+            margin: 25px auto;
+            padding: 20px;
             list-style: none;
             color: #fff;
             max-width: 500px;
@@ -391,19 +424,19 @@
 
         .services-list li {
             font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 6px;
-            padding-left: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            padding-left: 20px;
             position: relative;
             color: #fff;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .services-list li:before {
-            content: "•";
+            content: "▸";
             color: #4fc3f7;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             position: absolute;
             left: 0;
             top: 0;
@@ -431,14 +464,28 @@
         }
 
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            border-left: 4px solid #42a5f5;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-card::after {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: Georgia, serif;
+            line-height: 1;
+            pointer-events: none;
         }
 
         .testimonial-card.visible {
@@ -448,14 +495,24 @@
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            padding-left: 20px;
         }
 
         .testimonial-author {
-            font-weight: bold;
-            color: #81d4fa;
+            font-weight: 600;
+            color: #b3e5fc;
+            text-align: right;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .contact {
@@ -475,6 +532,11 @@
             font-size: 1.2rem;
             line-height: 2;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-info .company-reg {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         .contact-info a {
@@ -542,14 +604,44 @@
             transform: scaleX(-1);
         }
 
-        .coral-reef {
-            width: 160px;
-            height: 120px;
-            background: url('images/redesign/starfish.png') no-repeat center center;
+        .rna-diagram-1 {
+            width: 180px;
+            height: 180px;
+            background: url('images/redesign/rna1.png') no-repeat center center;
+            background-size: contain;
+            left: 8%;
+            top: 25%;
+            animation: float-gentle 5s ease-in-out infinite;
+        }
+
+        .rna-diagram-2 {
+            width: 200px;
+            height: 200px;
+            background: url('images/redesign/rna2.png') no-repeat center center;
             background-size: contain;
             left: 5%;
-            bottom: 10%;
-            animation: sway 4s ease-in-out infinite;
+            top: 55%;
+            animation: float-gentle 6s ease-in-out infinite 1s;
+        }
+
+        .rna-diagram-3 {
+            width: 160px;
+            height: 160px;
+            background: url('images/redesign/rna3.png') no-repeat center center;
+            background-size: contain;
+            left: 45%;
+            top: 30%;
+            animation: float-gentle 7s ease-in-out infinite 0.5s;
+        }
+
+        .rna-diagram-4 {
+            width: 190px;
+            height: 190px;
+            background: url('images/redesign/rna4.png') no-repeat center center;
+            background-size: contain;
+            left: 50%;
+            top: 65%;
+            animation: float-gentle 5.5s ease-in-out infinite 2s;
         }
 
         /* Seabed background */
@@ -737,6 +829,18 @@
                 grid-template-columns: 1fr;
             }
 
+            .founder-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .founder-photo {
+                align-self: center;
+                width: 150px;
+                height: 180px;
+            }
+
             .nav-menu {
                 position: fixed;
                 top: 80px;
@@ -777,7 +881,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <img src="images/redesign/riboscope-logo.svg" alt="Riboscope Logo">
+                <img src="images/redesign/riboscope-logo-white.svg" alt="Riboscope Logo">
                 RIBOSCOPE
             </a>
             <ul class="nav-menu" id="nav-menu">
@@ -808,12 +912,24 @@
             <!-- Diver image -->
         </div>
 
-        <div class="background-illustration submarine" data-scroll-trigger="0.3">
+        <div class="background-illustration rna-diagram-1" data-scroll-trigger="0.2">
+            <!-- RNA diagram 1 -->
+        </div>
+
+        <div class="background-illustration rna-diagram-2" data-scroll-trigger="0.35">
+            <!-- RNA diagram 2 -->
+        </div>
+
+        <div class="background-illustration rna-diagram-3" data-scroll-trigger="0.4">
+            <!-- RNA diagram 3 -->
+        </div>
+
+        <div class="background-illustration submarine" data-scroll-trigger="0.7">
             <!-- Bathyscaphe image -->
         </div>
 
-        <div class="background-illustration coral-reef" data-scroll-trigger="0.6">
-            <!-- Starfish image -->
+        <div class="background-illustration rna-diagram-4" data-scroll-trigger="0.5">
+            <!-- RNA diagram 4 -->
         </div>
     </div>
 
@@ -821,12 +937,12 @@
         <section class="hero" id="home">
             <div class="section-content">
                 <h1>
-                    <img src="images/redesign/riboscope-logo.svg" alt="Riboscope Logo" class="hero-logo">
+                    <img src="images/redesign/riboscope-logo-white.svg" alt="Riboscope Logo" class="hero-logo">
                     RIBOSCOPE
                 </h1>
-                <p>RNA Bioinformatics Consultancy</p>
+                <p>End-to-end RNA bioinformatics expertise — from data pipelines to web applications — to accelerate discovery</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="cta-button">Start Your Project</a>
+                    <a href="#contact" class="cta-button">Get in Touch</a>
                     <a href="#services" class="cta-button secondary">Explore Services</a>
                 </div>
             </div>
@@ -874,24 +990,22 @@
                 <h2>About Riboscope</h2>
 
                 <div class="about-intro">
-                    <p class="about-lead">Founded in 2022, Riboscope provides specialist consultancy in RNA bioinformatics and software development.</p>
-                    <p>We combine expertise in RNA biology, computational pipelines, and interface design to help research teams, biotech startups, and established organisations make the most of their data.</p>
+                    <p class="about-lead">Founded in 2022, Riboscope is a specialist consultancy in RNA bioinformatics and scientific software development.</p>
+                    <p>With deep expertise in RNA biology, custom data pipelines, and intuitive interface design, Riboscope helps research groups, biotech startups, and VC firms turn complex RNA data into clear insight and discovery.</p>
                 </div>
 
                 <div class="about-founder">
                     <h3>Leadership</h3>
-                    <p>Riboscope is led by <a href="https://antonpetrov.com"><strong>Anton Petrov, PhD</strong></a>, a bioinformatician with 15+ years of experience in genome annotation, RNA structure analysis, and software development. Anton previously led the <a href="https://rfam.org">Rfam</a> and <a href="https://rnacentral.org">RNAcentral</a> databases at EMBL-EBI and created <a href="https://r2dt.bio">R2DT</a>.</p>
-                </div>
-
-                <div class="about-services">
-                    <h3>Our Approach</h3>
-                    <p>Our work spans every stage of the research pipeline — from processing raw data to developing demo-ready web applications. We deliver:</p>
-                    <ul class="services-list">
-                        <li>Robust RNA analysis pipelines</li>
-                        <li>Intuitive search and visualisation tools</li>
-                        <li>Interactive web applications and interfaces</li>
-                    </ul>
-                    <p class="about-philosophy">We combine scientific depth with a developer's mindset, helping clients turn complex data into actionable insights and working solutions.</p>
+                    <div class="founder-content">
+                        <div class="founder-photo">
+                            <img src="images/redesign/founder.jpg" alt="Anton Petrov, PhD - Founder of Riboscope">
+                        </div>
+                        <div class="founder-text">
+                            <p>Riboscope is led by <a href="https://antonpetrov.com"><strong>Anton Petrov, PhD</strong></a>, a bioinformatician with over 15 years of experience in RNA structure analysis, comparative genomics, and software development.</p>
+                            <p>Anton previously led the <a href="https://rfam.org">Rfam</a> and <a href="https://rnacentral.org">RNAcentral</a> databases at EMBL-EBI, key resources used by tens of thousands of researchers worldwide. He is the creator of <a href="https://r2dt.bio">R2DT</a>, a widely adopted platform for RNA secondary structure visualization.</p>
+                            <p>He has authored over 30 peer-reviewed papers with 4,200+ citations, serves as a peer reviewer for leading journals including Nucleic Acids Research and Nature Communications, and has reviewed grants for international funding agencies.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -918,14 +1032,14 @@
 
         <section class="contact" id="contact">
             <div class="section-content">
-                <h2>Get in Touch</h2>
+                <h2>Ready to Dive In?</h2>
                 <div class="contact-info">
-                    <p>Interested in working together?</p>
-                    <p>Email: <a href="mailto:contact@riboscope.com">contact@riboscope.com</a></p>
-                    <p>Location: Cambridge, UK</p>
+                    <p>Email: contact@riboscope.com</p>
+                    <p>Cambridge, UK</p>
+                    <p class="company-reg">Riboscope Ltd, registered in England & Wales (No. 14348766)</p>
                 </div>
                 <div class="contact-cta">
-                    <a href="mailto:contact@riboscope.com" class="cta-button">Send Message</a>
+                    <a href="mailto:contact@riboscope.com" class="cta-button">Get in Touch</a>
                 </div>
             </div>
         </section>
@@ -942,13 +1056,23 @@
             const scrollProgress = Math.min(scrollY / maxScroll, 1);
 
             // Define color stops for the gradient transition
+            // const colors = [
+            //     { r: 109, g: 212, b: 196 }, // Bluer seafoam
+            //     { r: 150, g: 217, b: 214 }, // Light blue
+            //     { r: 130, g: 190, b: 210 }, // Medium light blue
+            //     { r: 110, g: 170, b: 200 }, // Light blue
+            //     { r: 95, g: 155, b: 185 },  // Medium blue
+            //     { r: 80, g: 140, b: 170 }   // Deeper but still light blue
+            // ];
+
             const colors = [
-                { r: 109, g: 212, b: 196 }, // Bluer seafoam
-                { r: 150, g: 217, b: 214 }, // Light blue
-                { r: 130, g: 190, b: 210 }, // Medium light blue
-                { r: 110, g: 170, b: 200 }, // Light blue
+                { r: 37, g: 193, b: 212 }, // Seafoam
+                { r: 30, g: 163, b: 182 }, // Light blue
+                { r: 23, g: 132, b: 153 },  // Medium blue
                 { r: 95, g: 155, b: 185 },  // Medium blue
-                { r: 80, g: 140, b: 170 }   // Deeper but still light blue
+                { r: 80, g: 140, b: 170 },   // Deeper but still light blue
+                // { r: 15, g: 100, b: 121 },    // Deep blue
+
             ];
 
             const colorIndex = scrollProgress * (colors.length - 1);
