@@ -152,15 +152,16 @@
 
         section {
             min-height: 100vh;
-            padding: 80px 20px;
+            padding: 10px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             text-align: center;
             position: relative;
         }
 
         .hero {
+            padding: 20vh 0;
             background: transparent;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -173,19 +174,16 @@
             animation: fadeInUp 1s ease forwards;
             font-weight: bold;
             letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
         }
 
         .hero-logo {
-            height: 80px;
+            height: 100px;
             width: auto;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            display: block;
+            margin: 0 auto 30px auto;
         }
 
         .hero p {
@@ -214,7 +212,6 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .cta-button:hover {
@@ -247,7 +244,7 @@
 
         .services h2 {
             font-size: 3rem;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             color: #ffffff;
             font-weight: bold;
         }
@@ -311,9 +308,6 @@
             box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255,255,255,0.18);
             border-color: rgba(255,255,255,0.35);
         }
-        .service-card + .service-card {
-            /* subtle separation on narrow columns */
-        }
 
         .service-card.visible {
             transform: translateY(0);
@@ -341,7 +335,7 @@
         .about {
             background: transparent;
             color: #fff;
-            padding: 60px 0;
+            padding: 5px 0;
         }
 
         .about h2 {
@@ -600,6 +594,7 @@
         .testimonials {
             background: transparent;
             color: #fff;
+            min-height: 70vh;
         }
 
         .testimonials h2 {
@@ -630,10 +625,10 @@
             border: 1px solid rgba(255, 255, 255, 0.26);
         }
         .testimonial-card::before{
-            content: "“";
+            content: '"';
             position: absolute;
-            top: -8px;
-            left: 18px;
+            top: -5px;
+            left: 15px;
             font-size: 4rem;
             line-height: 1;
             color: rgba(255,255,255,0.25);
@@ -682,6 +677,7 @@
         .contact {
             background: transparent;
             color: #fff;
+            min-height: 50vh;
         }
 
         .contact h2 {
@@ -829,7 +825,7 @@
             bottom: -150px;
             left: 0;
             right: 0;
-            height: 600px;
+            height: 500px;
             background: url('images/redesign/seabed.png') no-repeat center bottom;
             background-size: cover;
             z-index: 999;
@@ -1059,6 +1055,31 @@
                 display: none;
             }
         }
+
+        /* Credits styling */
+        .credits {
+            position: absolute;
+            z-index: 2001;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.45;
+            color: #fff;
+            padding: 20px 0 20px 0;
+            pointer-events: auto;
+            margin-top: 90px;
+            width: 100%;
+        }
+
+        .credits a {
+            color: #b3e5fc;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s;
+        }
+
+        .credits a:hover {
+            color: #81d4fa;
+        }
     </style>
 </head>
 <body>
@@ -1121,11 +1142,9 @@
     <div class="container">
         <section class="hero" id="home">
             <div class="section-content">
-                <h1>
-                    <img src="images/redesign/riboscope-logo-white.svg" alt="Riboscope Logo" class="hero-logo">
-                    RIBOSCOPE
-                </h1>
-                <p>End-to-end RNA bioinformatics expertise — from data pipelines to web applications — accelerating discovery</p>
+                <img src="images/redesign/riboscope-logo-white.svg" alt="Riboscope Logo" class="hero-logo">
+                <h1>RIBOSCOPE</h1>
+                <p>From pipelines to platforms — RNA bioinformatics that speeds up discovery</p>
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button">Get in Touch</a>
                     <a href="#services" class="cta-button secondary">Explore Services</a>
@@ -1190,7 +1209,6 @@
                         </div>
                         <div class="founder-text">
                             <p class="founder-name"><a href="https://antonpetrov.com"><strong>Anton Petrov, PhD</strong></a></p>
-                            <p class="founder-role">Founder &amp; Principal Bioinformatician</p>
 
                             <div class="stat-badges">
                                 <span class="badge"><strong>15+</strong> years experience</span>
@@ -1216,16 +1234,14 @@
                 <div class="testimonial-grid">
                     <!-- Testimonial 1 (existing content kept) -->
                     <div class="testimonial-card">
-                        <div class="testimonial-text">“We worked with Anton on two projects to create custom code with advanced UI to support our researchers.”</div>
-                        <div class="testimonial-text">“We loved the tool he built and appreciated how organized and flexible he was throughout all stages — from project discussion and planning to execution and onboarding.”</div>
-                        <div class="testimonial-text">“Anton is clearly committed to delivering the best results for his clients, striving to understand their true needs and even suggesting solutions they may not have considered.”</div>
+                        <div class="testimonial-text">“We worked with Anton on two projects. We loved the tool he built and appreciated how organized and flexible he was throughout all stages.”</div>
+                        <div class="testimonial-text">“Anton is clearly committed to delivering the best results for his clients, striving to understand their true needs.”</div>
                         <div class="testimonial-author"><span class="testimonial-source">Director, RNA therapeutics startup</span></div>
                     </div>
                     <!-- Testimonial 2 (placeholder) -->
                     <div class="testimonial-card">
-                        <div class="testimonial-text">“Riboscope quickly translated our research needs into reliable tools and clear analyses. Communication was excellent throughout.”</div>
-                        <div class="testimonial-text">“The web interface made complex results easy to explore and share with the team.”</div>
-                        <div class="testimonial-author"><span class="testimonial-source">PI, University research group</span></div>
+                        <div class="testimonial-text">“Anton has excellent technical and product know-how - it’s a pleasure working with him.”</div>
+                        <div class="testimonial-author"><span class="testimonial-source">Industry collaborator, RNA therapeutics</span></div>
                     </div>
                 </div>
             </div>
@@ -1235,10 +1251,9 @@
             <div class="section-content">
                 <h2>Ready to Dive In?</h2>
                 <div class="contact-info">
-                    <p>Email: contact@riboscope.com</p>
+                    <p><a href="mailto:contact@riboscope.com">contact@riboscope.com</a></p>
                     <p>Cambridge, UK</p>
                     <p class="company-reg">Riboscope Ltd, registered in England & Wales (No. 14348766)</p>
-                    <p class="credits">Visuals: Photography — <a href="https://www.founderstory.co.uk/" rel="noopener">Rajen Mistry</a> · Illustrations — <a href="https://www.linkedin.com/in/boris-zieziulin-883238340/" rel="noopener">Boris Zieziulin</a></p>
                 </div>
                 <div class="contact-cta">
                     <a href="mailto:contact@riboscope.com" class="cta-button">Get in Touch</a>
@@ -1249,6 +1264,11 @@
 
     <!-- Seabed background at bottom of page -->
     <div class="seabed-background"></div>
+
+    <!-- Credits absolutely positioned at the very bottom -->
+    <div class="credits">
+        Illustrations — <a href="https://www.linkedin.com/in/boris-zieziulin-883238340/" rel="noopener">Boris Zieziulin</a> · Photography — <a href="https://www.founderstory.co.uk/" rel="noopener">Rajen Mistry</a>
+    </div>
 
     <script>
         // Scroll-based background color transition and illustration triggers
