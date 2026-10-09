@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riboscope - RNA Bioinformatics Consultancy</title>
+    <title>Riboscope | RNA Bioinformatics &amp; Scientific Software</title>
+    <meta name="description" content="Riboscope was a Cambridge-based consultancy, active between 2022 and 2026, specialising in RNA bioinformatics, RNA structure analysis and scientific software development. It is no longer accepting new projects.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -105,31 +106,6 @@
             transform: translateY(-1px);
         }
 
-        .nav-cta {
-            background: transparent;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-            border: 2px solid rgba(255,255,255,0.85);
-            cursor: pointer;
-            box-shadow: none;
-        }
-
-        .nav-cta:hover {
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(255,255,255,1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transform: translateY(-1px);
-        }
-
-        .nav-cta:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.35);
-        }
-
         /* Mobile Navigation */
         .nav-toggle {
             display: none;
@@ -194,6 +170,20 @@
             animation: fadeInUp 1s ease 0.5s forwards;
         }
 
+        .archive-notice {
+            display: inline-block;
+            max-width: 620px;
+            margin: 0 auto 45px auto;
+            padding: 12px 22px;
+            border-radius: 14px;
+            background: rgba(0, 40, 80, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+            font-size: 0.98rem;
+            line-height: 1.55;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+        }
+
         .hero-cta {
             margin-top: 30px;
             opacity: 0;
@@ -256,11 +246,6 @@
             margin-left: auto;
             margin-right: auto;
             color: #f0f8ff;
-        }
-
-        .services-cta {
-            margin-top: 50px;
-            text-align: center;
         }
 
         .service-grid {
@@ -661,7 +646,7 @@
             margin-top: 6px;
         }
         .testimonial-author::before{
-            content: "—";
+            content: "-";
             opacity: 0.9;
         }
         .testimonial-source{
@@ -722,19 +707,6 @@
 
         .contact-info a:hover {
             color: #b3e5fc;
-        }
-
-        .contact-cta {
-            margin-top: 40px;
-        }
-
-        .contact-cta .cta-button {
-            background: linear-gradient(45deg, #4fc3f7, #29b6f6);
-            margin: 10px;
-        }
-
-        .contact-cta .cta-button:hover {
-            box-shadow: 0 8px 25px rgba(79, 195, 247, 0.4);
         }
 
         .floating-elements {
@@ -995,6 +967,17 @@
                 font-size: 1.2rem;
             }
 
+            /* Offset the notice so the hero still fits above the fold */
+            .hero {
+                padding-top: 6vh;
+            }
+
+            .archive-notice {
+                font-size: 0.9rem;
+                padding: 10px 16px;
+                margin-bottom: 30px;
+            }
+
             section h2 {
                 font-size: 2rem !important;
             }
@@ -1038,10 +1021,6 @@
 
             .nav-toggle {
                 display: flex;
-            }
-
-            .nav-cta {
-                display: none;
             }
 
             .cta-button {
@@ -1092,12 +1071,11 @@
             </a>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Expertise</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Get Started</a>
             <div class="nav-toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
@@ -1142,12 +1120,14 @@
     <div class="container">
         <section class="hero" id="home">
             <div class="section-content">
+                <div class="archive-notice" role="note">
+                    <strong>Riboscope is no longer accepting new projects.</strong>
+                </div>
                 <img src="images/redesign/riboscope-logo-white.svg" alt="Riboscope Logo" class="hero-logo">
                 <h1>RIBOSCOPE</h1>
-                <p>From pipelines to platforms — RNA bioinformatics that speeds up discovery</p>
+                <p>From pipelines to platforms: RNA bioinformatics that speeds up discovery</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="cta-button">Get in Touch</a>
-                    <a href="#services" class="cta-button secondary">Explore Services</a>
+                    <a href="#services" class="cta-button secondary">Explore Our Work</a>
                 </div>
             </div>
             <div class="scroll-indicator">↓</div>
@@ -1155,8 +1135,8 @@
 
         <section class="services" id="services">
             <div class="section-content">
-                <h2>Services</h2>
-                <p class="services-intro">Specialist RNA bioinformatics for research, biotech, and industry</p>
+                <h2>Areas of Expertise</h2>
+                <p class="services-intro">RNA bioinformatics and scientific software development</p>
                 <div class="service-grid">
                     <div class="service-card">
                         <h3>Genome Annotation & RNA Discovery</h3>
@@ -1168,7 +1148,7 @@
                     </div>
                     <div class="service-card">
                         <h3>RNA Structure Visualisation</h3>
-                        <p>Deliver clear, publication‑ready visualisations of RNA structures — from individual molecules to entire families.</p>
+                        <p>Deliver clear, publication‑ready visualisations of RNA structures, from individual molecules to entire families.</p>
                     </div>
                     <div class="service-card">
                         <h3>Search Interfaces for Large Datasets</h3>
@@ -1176,15 +1156,12 @@
                     </div>
                     <div class="service-card">
                         <h3>Custom Pipelines & Data Processing</h3>
-                        <p>Build robust, reproducible pipelines tailored to your datasets — from raw inputs to interpretable results.</p>
+                        <p>Build robust, reproducible pipelines tailored to each dataset, from raw inputs to interpretable results.</p>
                     </div>
                     <div class="service-card">
                         <h3>Web Applications & Interfaces</h3>
                         <p>Develop research‑focused web applications and user interfaces, from rapid prototypes to polished demo‑ready tools.</p>
                     </div>
-                </div>
-                <div class="services-cta">
-                    <a href="#contact" class="cta-button">Discuss Your Project</a>
                 </div>
             </div>
         </section>
@@ -1194,8 +1171,8 @@
                 <h2>About Riboscope</h2>
 
                 <div class="about-intro">
-                    <p class="about-lead">Founded in 2022, Riboscope is a specialist consultancy in RNA bioinformatics and scientific software development.</p>
-                    <p>With deep expertise in RNA biology, custom data pipelines, and intuitive interface design, Riboscope helps research groups, biotech startups, and VC firms turn complex RNA data into clear insight and discovery.</p>
+                    <p class="about-lead">Active between 2022 and 2026, Riboscope was a specialist consultancy in RNA bioinformatics and scientific software development.</p>
+                    <p>With deep expertise in RNA biology, custom data pipelines, and intuitive interface design, Riboscope helped research groups, biotech startups, and VC firms turn complex RNA data into clear insight and discovery.</p>
                 </div>
 
                     <div class="about-founder">
@@ -1205,7 +1182,7 @@
                     </div>
                     <div class="founder-content">
                         <div class="founder-photo">
-                            <img src="images/redesign/founder.jpg" alt="Anton Petrov, PhD — Founder of Riboscope">
+                            <img src="images/redesign/founder.jpg" alt="Anton Petrov, PhD, Founder of Riboscope">
                         </div>
                         <div class="founder-text">
                             <p class="founder-name"><a href="https://antonpetrov.com"><strong>Anton Petrov, PhD</strong></a></p>
@@ -1249,14 +1226,11 @@
 
         <section class="contact" id="contact">
             <div class="section-content">
-                <h2>Ready to Dive In?</h2>
+                <h2>Contact</h2>
                 <div class="contact-info">
                     <p><a href="mailto:contact@riboscope.com">contact@riboscope.com</a></p>
                     <p>Cambridge, UK</p>
                     <p class="company-reg">Riboscope Ltd, registered in England & Wales (No. 14348766)</p>
-                </div>
-                <div class="contact-cta">
-                    <a href="mailto:contact@riboscope.com" class="cta-button">Get in Touch</a>
                 </div>
             </div>
         </section>
@@ -1267,7 +1241,7 @@
 
     <!-- Credits absolutely positioned at the very bottom -->
     <div class="credits">
-        Illustrations — <a href="https://www.linkedin.com/in/boris-zieziulin-883238340/" rel="noopener">Boris Zieziulin</a> · Photography — <a href="https://www.founderstory.co.uk/" rel="noopener">Rajen Mistry</a>
+        Illustrations: <a href="https://www.linkedin.com/in/boris-zieziulin-883238340/" rel="noopener">Boris Zieziulin</a> · Photography: <a href="https://www.founderstory.co.uk/" rel="noopener">Rajen Mistry</a>
     </div>
 
     <script>
